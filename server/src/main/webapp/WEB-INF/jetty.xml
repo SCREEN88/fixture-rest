@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+    <New id="httpConfig" class="org.eclipse.jetty.server.HttpConfiguration">
+        <Set name="securePort">8443</Set>
+
+        <Set name="outputBufferSize">65536</Set>
+        <Set name="requestHeaderSize">16384</Set>
+        <Set name="responseHeaderSize">65536</Set>
+        <Set name="sendServerVersion">false</Set>
+        <Set name="sendDateHeader">true</Set>
+        <Set name="headerCacheSize">512</Set>
+    </New>
+
+    <Set name="stopAtShutdown">true</Set>
+    <Set name="stopTimeout">5000</Set>
+
+    <Call class="java.lang.System" name="setProperty">
+        <Arg>ru.hh.jetty.jndi.config.path</Arg>
+        <Arg>file:<SystemProperty name="settingsDir" default="/etc/ru.hh-ru.hh.fixtureServer"/>/
+        </Arg>
+    </Call>
+
+</Configure>

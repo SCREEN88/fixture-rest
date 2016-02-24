@@ -1,8 +1,8 @@
 package ru.hh.fixture;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class UserData implements Serializable {
