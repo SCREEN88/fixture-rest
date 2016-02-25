@@ -6,10 +6,10 @@ import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class JsonObjectMapperProvider implements ContextResolver<ObjectMapper> {
+public class JacksonMapperProvider implements ContextResolver<ObjectMapper> {
   final ObjectMapper defaultObjectMapper;
 
-  public JsonObjectMapperProvider() {
+  public JacksonMapperProvider() {
     defaultObjectMapper = createDefaultMapper();
   }
 
