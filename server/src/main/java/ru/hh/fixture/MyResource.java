@@ -18,8 +18,8 @@ public class MyResource {
     @GET
     @Path("xml")
     @Produces(MediaType.TEXT_XML)
-    public String sayXMLHello() {
-        return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+    public UserData sayXMLHello() {
+        return new UserData();
     }
 
     @GET

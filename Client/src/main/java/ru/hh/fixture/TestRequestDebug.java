@@ -8,6 +8,8 @@ import ru.hh.jclient.common.RequestDebug;
 import ru.hh.jclient.common.exception.ResponseConverterException;
 
 public class TestRequestDebug implements RequestDebug {
+  private static final RequestDebug DISABLED_REQUEST_DEBUG = new TestRequestDebug();
+
   @Override
   public void onRequest(AsyncHttpClientConfig config, Request request, Optional<?> requestBodyEntity) {
 
@@ -15,7 +17,7 @@ public class TestRequestDebug implements RequestDebug {
 
   @Override
   public Response onResponse(AsyncHttpClientConfig config, Response response) {
-    return null;
+    return response;
   }
 
   @Override
@@ -41,5 +43,8 @@ public class TestRequestDebug implements RequestDebug {
   @Override
   public void addLabel(String label) {
 
+  }
+  public static RequestDebug instance() {
+    return DISABLED_REQUEST_DEBUG;
   }
 }
