@@ -1,5 +1,6 @@
 package ru.hh.fixture;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import javax.ws.rs.ext.ContextResolver;
@@ -21,6 +22,7 @@ public class JacksonMapperProvider implements ContextResolver<ObjectMapper> {
   private static ObjectMapper createDefaultMapper() {
     final ObjectMapper result = new ObjectMapper();
     result.findAndRegisterModules();
+    result.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     result.configure(SerializationFeature.INDENT_OUTPUT, false); //set true for pretty print
     return result;
   }
