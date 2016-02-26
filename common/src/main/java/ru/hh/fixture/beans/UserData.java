@@ -1,8 +1,9 @@
-package ru.hh.fixture;
+package ru.hh.fixture.beans;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlRootElement;
+import ru.hh.fixture.enums.AuthSystem;
 
 @XmlRootElement
 public class UserData implements Serializable {

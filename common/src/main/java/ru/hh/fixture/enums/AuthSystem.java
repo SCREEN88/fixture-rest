@@ -1,4 +1,4 @@
-package ru.hh.fixture;
+package ru.hh.fixture.enums;
 
 public enum AuthSystem {
     HH,

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>fixture-rest</artifactId>
         <groupId>ru.hh.fixture</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${project.version}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -18,6 +18,11 @@
             <groupId>ru.hh.jclient-common</groupId>
             <artifactId>jclient-common</artifactId>
             <version>${jclient-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.hh.fixture</groupId>
+            <artifactId>fixture-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

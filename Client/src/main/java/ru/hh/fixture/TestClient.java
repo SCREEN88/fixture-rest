@@ -10,6 +10,7 @@ import com.ning.http.client.providers.netty.NettyAsyncHttpProvider;
 import static java.util.Collections.emptyMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import ru.hh.fixture.beans.UserData;
 import ru.hh.jclient.common.AbstractClient;
 import ru.hh.jclient.common.HttpClientBuilder;
 import ru.hh.jclient.common.HttpClientContext;
@@ -49,5 +50,4 @@ public class TestClient extends AbstractClient {
     )));
     client.testClient().get().get().get();
   }
-
 }
