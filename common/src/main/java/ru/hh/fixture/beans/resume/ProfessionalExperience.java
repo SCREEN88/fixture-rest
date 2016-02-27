@@ -3,10 +3,7 @@ package ru.hh.fixture.beans.resume;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ProfessionalExperience implements Serializable {
   ArrayList<ExperienceRecord> history = new ArrayList<>(1);
@@ -115,18 +112,18 @@ public class ProfessionalExperience implements Serializable {
     private Integer areaId;
     private String url;
     private Industry industry;
-    private Set<Industry> industries;
+    //private Set<Industry> industries;
     private Company company;
 
     public ExperienceCompany(String organization){
       this.organization = organization;
     }
 
-    public ExperienceCompany(String organization, Integer areaId, String url, Industry industry, Set<Industry> industries, Company company) {
+    public ExperienceCompany(String organization, Integer areaId, String url, Industry industry, /*Set<Industry> industries, */Company company) {
       this.url = url;
       this.areaId = areaId;
       this.industry = industry;
-      this.industries = industries;
+      //this.industries = industries;
       this.organization = organization;
       this.company = company;
     }
@@ -155,7 +152,7 @@ public class ProfessionalExperience implements Serializable {
       this.industry = industry;
     }
 
-    public Set<Industry> getIndustries() {
+    /*public Set<Industry> getIndustries() {
       return industries;
     }
 
@@ -166,7 +163,7 @@ public class ProfessionalExperience implements Serializable {
 
     public void setIndustries(Set<Industry> industrySet) {
       industries = industrySet;
-    }
+    }*/
 
     public String getOrganization() {
       return organization;

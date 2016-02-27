@@ -6,7 +6,7 @@
     <groupId>ru.hh.fixture</groupId>
     <artifactId>fixture-rest</artifactId>
     <packaging>pom</packaging>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <name>fixture-rest</name>
 
     <modules>

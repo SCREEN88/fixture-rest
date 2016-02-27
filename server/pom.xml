@@ -5,7 +5,7 @@
     <parent>
         <artifactId>fixture-rest</artifactId>
         <groupId>ru.hh.fixture</groupId>
-        <version>${project.version}</version>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -62,6 +62,16 @@
             <groupId>ru.hh.fixture</groupId>
             <artifactId>fixture-common</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
         </dependency>
 
         <!--<dependency>

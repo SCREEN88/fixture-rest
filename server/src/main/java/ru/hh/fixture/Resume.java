@@ -1,17 +1,5 @@
 package ru.hh.fixture;
 
-import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import jersey.repackaged.com.google.common.base.Joiner;
 import jersey.repackaged.com.google.common.base.MoreObjects;
 import jersey.repackaged.com.google.common.collect.Lists;
@@ -43,6 +31,19 @@ import ru.hh.fixture.enums.resume.ResumeSchedule;
 import ru.hh.fixture.enums.resume.ResumeStatus;
 import ru.hh.fixture.enums.resume.RoadTimeType;
 import ru.hh.fixture.enums.resume.WorkExperience;
+
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Resume {
   private final LocalDateTime today = LocalDateTime.now();
@@ -122,7 +123,7 @@ public class Resume {
     shortResume.setPhone(new String[]{"7", "123", "1234567"});
     shortResume.setRegion("Москва");
     shortResume.setSpecializationNames(new String[]{"Добыча сырья"});
-    shortResume.initOptional();
+    //shortResume.initOptional();
     return shortResume;
   }
 
@@ -143,8 +144,8 @@ public class Resume {
     experienceCompany.setAreaId(1);
     Industries<Industries.SubCulture> firstIndustry = Industries.ISKUSSTVO_KULTURA;
     experienceCompany.setIndustry(firstIndustry.getIndustry());
-    experienceCompany.setIndustries(firstIndustry.getSubIndustry().MUZEJ_GALEREYA_TEATR.getIndustry(),
-        firstIndustry.getSubIndustry().ARKHIV_BIBLIOTEKA_ISKUSSTVOVEDENIE.getIndustry());
+    //experienceCompany.setIndustries(firstIndustry.getSubIndustry().MUZEJ_GALEREYA_TEATR.getIndustry(),
+      //  firstIndustry.getSubIndustry().ARKHIV_BIBLIOTEKA_ISKUSSTVOVEDENIE.getIndustry());
     experienceCompany.setUrl("http://some-kind.ru");
     experienceCompany.setCompany(new Company(272));
     record.setExperienceCompany(experienceCompany);
@@ -764,7 +765,7 @@ public class Resume {
   public void setResumePhoto(UserImage image) {
     resumeData.setResumePhoto(image);
   }
-/*
+
   public void setResumePhoto(String fileName) {
     Gallery gallery = new Gallery(user.getUserId());
     gallery.addPhotoFromResources(fileName);
@@ -777,7 +778,7 @@ public class Resume {
 
   public void setResumePortfolio(Gallery gallery) {
     resumeData.setResumePortfolio(gallery.getArtifacts());
-  }*/
+  }
 
   public ContactInformation getContactInformation() {
     return resumeData.getContactInformation();
