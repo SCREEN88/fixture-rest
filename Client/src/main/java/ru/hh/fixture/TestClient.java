@@ -2,11 +2,16 @@ package ru.hh.fixture;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.google.common.collect.ImmutableSet;
 import com.ning.http.client.AsyncHttpClient;
 import com.ning.http.client.AsyncHttpClientConfig;
 import com.ning.http.client.RequestBuilder;
 import com.ning.http.client.providers.netty.NettyAsyncHttpProvider;
+import static java.util.Collections.emptyMap;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import ru.hh.fixture.beans.UserData;
 import ru.hh.fixture.beans.resume.ResumeData;
 import ru.hh.jclient.common.AbstractClient;
@@ -15,11 +20,6 @@ import ru.hh.jclient.common.HttpClientContext;
 import ru.hh.jclient.common.JResource;
 import ru.hh.jclient.common.ResultWithStatus;
 import ru.hh.jclient.common.util.storage.SingletonStorage;
-
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
-import static java.util.Collections.emptyMap;
 
 public class TestClient extends AbstractClient {
   private static final String PATH = "/rest";
@@ -32,11 +32,15 @@ public class TestClient extends AbstractClient {
     this.baseHost = host;
     this.jsonMapper = new ObjectMapper();
     jsonMapper.findAndRegisterModules();
-//    jsonMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
+    jsonMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
+//    jsonMapper.configure(DeserializationFeature.UNWRAP_SINGLE_VALUE_ARRAYS, true);
 //    jsonMapper.configure(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES, false);
 //    jsonMapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true);
 //    jsonMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     jsonMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+    SimpleModule simpleModule = new SimpleModule();
+    simpleModule.addDeserializer(List.class, new CustomJsonDeserializer());
+    jsonMapper.registerModule(simpleModule);
   }
 
   @JResource("/hello/json")

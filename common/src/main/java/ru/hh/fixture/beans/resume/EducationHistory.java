@@ -4,21 +4,27 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 public class EducationHistory implements Serializable {
   private ArrayList<EducationRecord> history = new ArrayList<>(1);
 
   public EducationHistory() {
+    history = new ArrayList<>(1);
   }
 
+  @XmlTransient
   public EducationRecord get(int index) {
     return history.get(index);
   }
 
+  @XmlTransient
   public EducationRecord getFirst() {
     return history.get(0);
   }
 
+  @XmlElement(name="record")
   public List<EducationRecord> getAll() {
     return history;
   }

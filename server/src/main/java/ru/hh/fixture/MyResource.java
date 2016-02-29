@@ -1,12 +1,11 @@
 package ru.hh.fixture;
 
-import ru.hh.fixture.beans.UserData;
-import ru.hh.fixture.beans.resume.ResumeData;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import ru.hh.fixture.beans.UserData;
+import ru.hh.fixture.beans.resume.ResumeData;
 
 @Path("/hello")
 public class MyResource {
@@ -37,8 +36,8 @@ public class MyResource {
   @Path("resume")
   @Produces(MediaType.APPLICATION_JSON)
   public ResumeData sayHelloToResume() {
-    //Resume resume = new Resume(new UserData(), true);
-    Resume resume = Resume.makeShortResume(new UserData());
+    Resume resume = new Resume(new UserData(), true);
+    //Resume resume = Resume.makeShortResume(new UserData());
     //resume.setResumePhoto("pre_waterfalls1aw.jpg");
     return resume.getResumeInfo();
   }

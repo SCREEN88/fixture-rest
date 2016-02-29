@@ -1,5 +1,17 @@
 package ru.hh.fixture;
 
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import jersey.repackaged.com.google.common.base.Joiner;
 import jersey.repackaged.com.google.common.base.MoreObjects;
 import jersey.repackaged.com.google.common.collect.Lists;
@@ -31,19 +43,6 @@ import ru.hh.fixture.enums.resume.ResumeSchedule;
 import ru.hh.fixture.enums.resume.ResumeStatus;
 import ru.hh.fixture.enums.resume.RoadTimeType;
 import ru.hh.fixture.enums.resume.WorkExperience;
-
-import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Resume {
   private final LocalDateTime today = LocalDateTime.now();
@@ -145,13 +144,13 @@ public class Resume {
     Industries<Industries.SubCulture> firstIndustry = Industries.ISKUSSTVO_KULTURA;
     experienceCompany.setIndustry(firstIndustry.getIndustry());
     //experienceCompany.setIndustries(firstIndustry.getSubIndustry().MUZEJ_GALEREYA_TEATR.getIndustry(),
-      //  firstIndustry.getSubIndustry().ARKHIV_BIBLIOTEKA_ISKUSSTVOVEDENIE.getIndustry());
+    //firstIndustry.getSubIndustry().ARKHIV_BIBLIOTEKA_ISKUSSTVOVEDENIE.getIndustry());
     experienceCompany.setUrl("http://some-kind.ru");
     experienceCompany.setCompany(new Company(272));
     record.setExperienceCompany(experienceCompany);
     experience.add(record);
-    setProfessionalExperience(experience);
-    setEducationHistory(EducationHistory.oneRecord("МАИ", "Аэрокосмический", "Магистр", LocalDate.now().minusDays(1000)));
+    //setProfessionalExperience(experience);
+    //setEducationHistory(EducationHistory.oneRecord("МАИ", "Аэрокосмический", "Магистр", LocalDate.now().minusDays(1000)));
     setAboutMe("Умею писать автотесты");
     setKeySkills(new String[]{"Графика", "Дизайн"});
     setEducation(EducationLevel.HIGHER);
@@ -170,8 +169,8 @@ public class Resume {
     ContactInformation contactInformation = new ContactInformation(user.getEmail(), ResumePreferredLink.CELL_PHONE);
     contactInformation.addPhone(ContactInformation.PhoneType.CELL,
         new Phone("7", "926", "123456", "Мой новенький мобильный телефон"));
-    setContactInformation(contactInformation);
-    setAccess(new Access(ResumeAccessType.CLIENTS));
+    //setContactInformation(contactInformation);
+    //setAccess(new Access(ResumeAccessType.CLIENTS));
     setCitizenship(new ResumeArea[]{ResumeArea.RUSSIA});
     setWorkTickets(new ResumeArea[]{});
     setResumeStatus(ResumeStatus.APPROVED);
@@ -188,13 +187,13 @@ public class Resume {
     setCompanyBranches(new String[]{"Разработка программного обеспечения", "Интернет-провайдер"});
     setDesireableCompensation(Money.USD(1500));
     setBirthdayDate(LocalDate.of(1966, 10, 10));
-    setRelocation(RelocationInfo.noRelocation());
-    setLanguagesInfo(new ResumeLanguage(1));
+    //setRelocation(RelocationInfo.noRelocation());
+    //setLanguagesInfo(new ResumeLanguage(1));
     setMiddleName(user.getMiddleName());
     setWorkExperience(WorkExperience.FROM_1_TO_3_YEAR);
     setLanguage("Русский");
     setMetroStation("Марксистская");
-    setRecommendationInfo(RecommendationInfo.oneRecord("Name", "Organization", "Pozition", "ContactInfo"));
+    //setRecommendationInfo(RecommendationInfo.oneRecord("Name", "Organization", "Pozition", "ContactInfo"));
     setEmployments(new HashSet<>(Collections.singletonList(Employment.FULL_TIME)));
     setResumeSchedules(new HashSet<>(Collections.singletonList(ResumeSchedule.FULL_DAY)));
 //    setCertification(new Certification("655074", "NeilMCSE"));
